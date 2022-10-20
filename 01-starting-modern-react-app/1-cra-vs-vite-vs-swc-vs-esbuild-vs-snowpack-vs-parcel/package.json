@@ -57,7 +57,7 @@
 		"overrides": [
 			{
 				"files": [
-					"**/cypress/**/*.spec.ts"
+					"**/tests/e2e/**/*.spec.ts"
 				],
 				"rules": {
 					"testing-library/await-async-query": 0,
