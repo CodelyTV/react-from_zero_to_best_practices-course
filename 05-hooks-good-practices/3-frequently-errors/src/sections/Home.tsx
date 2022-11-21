@@ -8,6 +8,9 @@ export function Home() {
 				<li>
 					<Link to={"/infinite-loop"}>Infinite loop in useEffect</Link>
 				</li>
+				<li>
+					<Link to={"/no-use-memo"}>Derivated state without useMemo</Link>
+				</li>
 			</ul>
 		</section>
 	);
