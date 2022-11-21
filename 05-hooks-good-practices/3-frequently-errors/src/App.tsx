@@ -7,6 +7,8 @@ import { UseEffectWithoutReturn } from "./sections/use-effect-return/UseEffectWi
 import { UseEffectWithReturn } from "./sections/use-effect-return/UseEffectWithReturn";
 import { DerivatedStateWithoutUseMemo } from "./sections/use-memo/DerivatedStateWithoutUseMemo";
 import { DerivatedStateWithUseMemo } from "./sections/use-memo/DerivatedStateWithUseMemo";
+import { UseStatePrevValue } from "./sections/use-state-prev-value/UseStatePrevValue";
+import { UseStatePrevValueFixed } from "./sections/use-state-prev-value/UseStatePrevValueFixed";
 
 const router = createBrowserRouter([
 	{
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
 	{
 		path: "/use-effect-return-fixed",
 		element: <UseEffectWithReturn />,
+	},
+	{
+		path: "/use-state-prev-value",
+		element: <UseStatePrevValue />,
+	},
+	{
+		path: "/use-state-prev-value-fixed",
+		element: <UseStatePrevValueFixed />,
 	},
 ]);
 

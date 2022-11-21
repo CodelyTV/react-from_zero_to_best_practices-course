@@ -22,7 +22,7 @@ export function DerivatedStateWithUseMemo() {
 
 	return (
 		<section>
-			<h1>Derivated state without useMemo</h1>
+			<h1>Derivated state with useMemo</h1>
 			<input
 				value={filter}
 				onChange={(ev: ChangeEvent<HTMLInputElement>) => {

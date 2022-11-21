@@ -21,7 +21,7 @@ export function UseEffectWithReturn() {
 
 	return (
 		<section>
-			<h1>useEffect without return</h1>
+			<h1>useEffect with return callback</h1>
 			<button
 				onClick={() => {
 					setCounter((prev) => prev + 1);
