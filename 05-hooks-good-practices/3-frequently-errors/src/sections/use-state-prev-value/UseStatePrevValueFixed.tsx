@@ -1,21 +1,29 @@
 /* eslint-disable no-console */
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import { Book, search } from "../../infrastructure/BookSearcher";
 
 export function UseStatePrevValueFixed() {
-	const [counter, setCounter] = useState(0);
+	const [books, setBooks] = useState<Book[]>([]);
+	const [page, setPage] = useState(0);
 
-	function incrementCounter() {
-		// side effect like read from storage
-		setTimeout(() => {
-			console.log("response from side effect");
-			setCounter((prevValue) => prevValue + 1);
-		}, 1000);
+	function incrementPage() {
+		setPage(page + 1);
 	}
+
+	useEffect(() => {
+		search(page).then((newBooks) => setBooks((prevState) => prevState.concat(newBooks)));
+	}, [page]);
 
 	return (
 		<section>
 			<h1>Modify useState prev value</h1>
-			<button onClick={incrementCounter}>Increment counter: {counter}</button>
+			<button onClick={incrementPage}>Next page: {page}</button>
+			<ul>
+				{books.map((b) => (
+					<li key={b.title}>{b.title}</li>
+				))}
+			</ul>
 		</section>
 	);
 }

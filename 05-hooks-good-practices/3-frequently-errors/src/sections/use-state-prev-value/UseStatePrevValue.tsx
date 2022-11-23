@@ -1,22 +1,30 @@
 /* eslint-disable no-console */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export function UseStatePrevValue() {
-	const [counter, setCounter] = useState(0);
+import { Book, search } from "../../infrastructure/BookSearcher";
 
-	function incrementCounter() {
-		// side effect like read from storage
-		setTimeout(() => {
-			console.log("response from side effect");
-			setCounter(counter + 1);
-		}, 1000);
+export function UseStatePrevValue() {
+	const [books, setBooks] = useState<Book[]>([]);
+	const [page, setPage] = useState(0);
+
+	function incrementPage() {
+		setPage(page + 1);
 	}
+
+	useEffect(() => {
+		search(page).then((newBooks) => setBooks(books.concat(newBooks)));
+	}, [page]);
 
 	return (
 		<section>
 			<h1>Modify useState prev value</h1>
-			<button onClick={incrementCounter}>Increment counter: {counter}</button>
+			<button onClick={incrementPage}>Next page: {page}</button>
+			<ul>
+				{books.map((b) => (
+					<li key={b.title}>{b.title}</li>
+				))}
+			</ul>
 			<p>
 				<Link to={"/use-state-prev-value-fixed"}>Fixed example</Link>
 			</p>
