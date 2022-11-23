@@ -1,22 +1,24 @@
 /* eslint-disable no-console */
 import { useEffect, useState } from "react";
 
+import { Book, search } from "../../infrastructure/BookSearcher";
+
 export function InfiniteLoopFixed() {
-	const [data, setData] = useState(0);
+	const [books, setBooks] = useState<Book[]>([]);
 
 	useEffect(() => {
-		console.log("useEffect");
-
-		// Simulate side effect like external API call
-		setTimeout(() => {
-			setData(Math.random());
-		}, 1000);
+		search().then((books) => setBooks(books));
 	}, []);
 
 	return (
 		<section>
-			<h1>Infinite loop in useEffect fixed</h1>
-			<span>Remote data: {data}</span>
+			<h1>Infinite loop in useEffect</h1>
+
+			<ul>
+				{books.map((book) => (
+					<li key={book.id}>{book.title}</li>
+				))}
+			</ul>
 		</section>
 	);
 }

@@ -1,9 +1,7 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-interface Book {
-	name: string;
-}
+import { Book, search } from "../../infrastructure/BookSearcher";
 
 export function DerivatedStateWithoutUseMemo() {
 	const [books, setBooks] = useState<Book[]>([]);
@@ -11,15 +9,12 @@ export function DerivatedStateWithoutUseMemo() {
 	const [filter, setFilter] = useState("");
 
 	useEffect(() => {
-		//Simulate external api call
-		setTimeout(() => {
-			setBooks([{ name: "Aprendiendo Git" }, { name: "DDD en TypeScript" }]);
-		}, 1500);
+		search().then((books) => setBooks(books));
 	}, []);
 
 	useEffect(() => {
 		setFilteredBooks(
-			books.filter((book) => book.name.toUpperCase().includes(filter.toUpperCase()))
+			books.filter((book) => book.title.toUpperCase().includes(filter.toUpperCase()))
 		);
 	}, [books, filter]);
 
@@ -34,7 +29,7 @@ export function DerivatedStateWithoutUseMemo() {
 			/>
 			<ul>
 				{filteredBooks.map((b) => (
-					<li key={b.name}>{b.name}</li>
+					<li key={b.title}>{b.title}</li>
 				))}
 			</ul>
 			<p>

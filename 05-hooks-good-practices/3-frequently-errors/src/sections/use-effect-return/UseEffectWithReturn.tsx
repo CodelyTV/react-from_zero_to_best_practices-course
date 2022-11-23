@@ -1,34 +1,35 @@
 import { useEffect, useState } from "react";
 
+import { Book, search } from "../../infrastructure/BookSearcher";
+
 /* eslint-disable no-console */
 export function UseEffectWithReturn() {
-	const [counter, setCounter] = useState(0);
+	const [books, setBooks] = useState<Book[]>([]);
 
 	useEffect(() => {
-		const resizeListener = (counter: number) => () => {
-			// do cool things
-			console.log(counter);
+		search().then((books) => setBooks(books));
+	}, []);
+
+	useEffect(() => {
+		const handleOnline = () => {
+			search().then((books) => setBooks(books));
 		};
 
-		const listener = resizeListener(counter);
-
-		window.addEventListener("resize", listener);
+		window.addEventListener("online", handleOnline);
 
 		return () => {
-			window.removeEventListener("resize", listener);
+			window.removeEventListener("online", handleOnline);
 		};
-	}, [counter]);
+	});
 
 	return (
 		<section>
-			<h1>useEffect with return callback</h1>
-			<button
-				onClick={() => {
-					setCounter((prev) => prev + 1);
-				}}
-			>
-				Add to counter: {counter}
-			</button>
+			<h1>useEffect without return</h1>
+			<ul>
+				{books.map((book) => (
+					<li key={book.id}>{book.title}</li>
+				))}
+			</ul>
 		</section>
 	);
 }
