@@ -15,7 +15,7 @@ export function Home() {
 					<Link to={"/use-state-prev-value"}>Modify prev state value from useState value</Link>
 				</li>
 				<li>
-					<Link to={"/use-effect-returnue"}>No use useEffect return callback</Link>
+					<Link to={"/use-effect-return"}>No use useEffect return callback</Link>
 				</li>
 			</ul>
 		</section>
