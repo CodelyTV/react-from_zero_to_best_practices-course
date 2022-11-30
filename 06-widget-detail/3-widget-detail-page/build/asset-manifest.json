@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "./static/css/main.6260cd28.css",
+    "main.js": "./static/js/main.584b2219.js",
+    "static/media/brand.svg": "./static/media/brand.ca6deda346742ccd64baf900a005d844.svg",
+    "static/media/repo-forked.svg": "./static/media/repo-forked.bae245e31d7a9cc7547ec13f546f916e.svg",
+    "static/media/star.svg": "./static/media/star.0d62bbdeccfa9c811dbce9480ed4f32f.svg",
+    "static/media/error.svg": "./static/media/error.8b9539a526b345b5d28b3e65172c4aff.svg",
+    "static/media/issue-opened.svg": "./static/media/issue-opened.bf57283a3af8675ed65067945a22a4da.svg",
+    "static/media/git-pull-request.svg": "./static/media/git-pull-request.c2adbea7de7a8938df9c2c10fdb0056f.svg",
+    "static/media/unlock.svg": "./static/media/unlock.600dafb62dda0defc0c6bcaa48f39195.svg",
+    "static/media/watchers.svg": "./static/media/watchers.2c127ebeb91d905a0521d7ac4f7ea232.svg",
+    "static/media/lock.svg": "./static/media/lock.9720bbc68db72042734c0609c0c0b1b1.svg",
+    "static/media/check.svg": "./static/media/check.4a02fb7167d70e761a99185f1b746dd5.svg",
+    "index.html": "./index.html",
+    "main.6260cd28.css.map": "./static/css/main.6260cd28.css.map",
+    "main.584b2219.js.map": "./static/js/main.584b2219.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6260cd28.css",
+    "static/js/main.584b2219.js"
+  ]
+}
