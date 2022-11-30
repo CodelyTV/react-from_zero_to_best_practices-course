@@ -1,0 +1,54 @@
+.repository-detail {
+  max-width: 80%;
+  margin: 0.5rem auto;
+
+  .header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background-color: #3cff64;
+
+    a {
+      color: #1a2233;
+    }
+
+    &__title {
+      margin: 0.5rem;
+    }
+  }
+
+  .build {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .detail__table {
+    width: 100%;
+    margin-top: 1rem;
+    text-align: center;
+    border-collapse: collapse;
+
+    thead tr th {
+      border-bottom: 1px solid black;
+    }
+
+    tbody {
+      a {
+        color: inherit;
+      }
+
+      tr:nth-child(odd) {
+        color: white;
+        background-color: #1a2233;
+      }
+
+      tr td {
+        padding: 0.5rem;
+      }
+    }
+  }
+}
