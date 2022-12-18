@@ -1,3 +1,4 @@
+// $ curl -H "Accept: application/vnd.github+json"  https://api.github.com/repos/CodelyTV/dotly  | jq
 const dotlyResponses = {
 	repositoryData: {
 		id: 236863475,
@@ -2198,6 +2199,7 @@ const dotlyResponses = {
 	},
 };
 
+// $ curl -H "Accept: application/vnd.github+json"  https://api.github.com/repos/CodelyTV/eslint-plugin-hexagonal-architecture  | jq
 const eslintPluginHexagonalArchitecturaResponses = {
 	repositoryData: {
 		id: 526244164,
@@ -2679,6 +2681,7 @@ const eslintPluginHexagonalArchitecturaResponses = {
 	},
 };
 
+// $ curl -H "Accept: application/vnd.github+json"  https://api.github.com/repos/CodelyTV/dotly  | jq
 const refactoringCodeSmellsResponses = {
 	repositoryData: {
 		id: 296282963,
@@ -6132,7 +6135,8 @@ const refactoringCodeSmellsResponses = {
 				type: "User",
 				site_admin: false,
 			},
-			body: "This is an example for illustrating Shotgun Surgery Code Smell, in which we compute the duration of different course `Step` types.\r\n\r\nThe logic for determining the duration of a `Step` is coupled to the step type:\r\n- Duration(videoStep) = VideoDuration * 1.1\r\n- Duration(quizStep) = QuestionCount * estimatedTimePerQuestion * 1.5\r\n\r\nThe `1.1` and `1.5` are factors that might represent:\r\n- Video (1.1): increases the duration due to video pauses.\r\n- Quiz (1.5): increases the duration due to final review of the quiz.\r\n\r\nIn this example, instead of making the behaviour cohesive to the data, we have intentionally break the cohesion by spreading the behaviour in many classes and unnecessary abstractions.\r\n\r\n## Showing Shotgun Surgery Smell\r\n\r\nIn our current context, our platform only support a few types of `Steps`, and we know that we will add new ones in the near future, so the lack of cohesion will be a change preventer.\r\n\r\nTo show Shotgun Surgery smell, we can try to add a new `CodeExerciseStep` type with a new duration logic.\r\n\r\nFor that, we can start adding a new test in `GetStepDurationTest` that validates the behaviour of the duration for the new type.\r\n\r\nThen, if we follow the same patterns for adding the production code, the implementation becomes crazy:\r\n\r\n- Add `STEP_TYPE_CODE_EXERCISE` constant in `StepEnums` class.\r\n- Add `STEP_DURATION_MULTIPLIER_CODE_EXERCISE` constant in `StepEnums` class.\r\n- Create `StepDurationCalculatorCodeExercise` class.\r\n- Add the new calculator in `StepDurationCalculatorFactory`.\r\n- Add the logic for the new type in `DurationMultiplier` class.\r\n- Add `STEP_DURATION_MULTIPLIER_CODE_EXERCISE` to the `STEP_TYPES` array in `StepEnums` class.\r\n\r\n## Solving Shotgun Surgery Smell\r\n\r\nIf we take a look to the different abstractions, we will realize that all of them are coupled to the `Step` type. So we can perform some refactorings (Move method, Move constant, Inline class, Parallel change) for gaining cohesion and reduce accidental complexity.\r\n\r\nThe main focus of the refactorings should be:\r\n\r\n- Get rid of `DurationMultiplier`\r\n- Get rid of `StepDurationCalculator`\r\n- Get rid of `StepEnums`",
+			body: "This is an example for illustrating Shotgun Surgery Code Smell, in which we compute the duration of different course `Step` types.\r\n\r\nThe logic for determining the duration of a `Step` is coupled to the step type:\r\n- Duration(videoStep) = VideoDuration * 1.1\r\n- Duration(quizStep) = QuestionCount * estimatedTimePerQuestion * 1.5\r\n\r\nThe `1.1` and `1.5` are factors that might represent:\r\n- Video (1.1): increases the duration due to video pauses.\r\n- Quiz (1.5): increases the duration due to final review of the quiz.\r\n\r\nIn this example, instead of making the behaviour cohesive to the data, we have intentionally break the cohesion by spreading the behaviour in many classes and unnecessary abstractions.\r\n\r\n## Showing Shotgun Surgery Smell\r\n\r\nIn our current context, our platform only support a few types of `Steps`, and we know that we will add new ones in the near future, so the lack of cohesion will be a change preventer.\r\n\r\nTo show Shotgun Surgery smell, we can try to add a new `CodeExerciseStep` type with a new duration logic.\r\n\r\nFor that, we can start adding a new test in `GetStepDurationTest` that validates the behaviour of the duration for the new type.\r\n\r\nThen, if we follow the same patterns for adding the production code, the implementation becomes crazy:\r\n\r\n- Add `STEP_TYPE_CODE_EXERCISE` constant in `StepEnums` class.\r\n- Add `STEP_DURATION_MULTIPLIER_CODE_EXERCISE` 
+			ant in `StepEnums` class.\r\n- Create `StepDurationCalculatorCodeExercise` class.\r\n- Add the new calculator in `StepDurationCalculatorFactory`.\r\n- Add the logic for the new type in `DurationMultiplier` class.\r\n- Add `STEP_DURATION_MULTIPLIER_CODE_EXERCISE` to the `STEP_TYPES` array in `StepEnums` class.\r\n\r\n## Solving Shotgun Surgery Smell\r\n\r\nIf we take a look to the different abstractions, we will realize that all of them are coupled to the `Step` type. So we can perform some refactorings (Move method, Move constant, Inline class, Parallel change) for gaining cohesion and reduce accidental complexity.\r\n\r\nThe main focus of the refactorings should be:\r\n\r\n- Get rid of `DurationMultiplier`\r\n- Get rid of `StepDurationCalculator`\r\n- Get rid of `StepEnums`",
 			created_at: "2021-04-08T11:42:29Z",
 			updated_at: "2022-07-04T09:36:51Z",
 			closed_at: null,
