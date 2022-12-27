@@ -1,0 +1,59 @@
+.add_widget {
+  min-height: 14.25rem;
+  color: white;
+  background-color: #4f5562;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .add_button {
+    font-size: 1rem;
+    background-color: transparent;
+    border: 0;
+
+    p {
+      margin-top: 0.1rem;
+      color: white;
+    }
+  }
+
+  .form {
+    width: 100%;
+    padding: 1rem;
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    div {
+      margin-bottom: 1rem;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      height: 1.5rem;
+    }
+
+    input[type="submit"] {
+      padding: 0.5rem 1rem;
+      color: #1a2233;
+      font-size: 1rem;
+      background-color: #3cff64;
+      border: 1px solid transparent;
+      border-radius: 2rem;
+    }
+  }
+
+  .error {
+    padding: 0.25rem;
+    color: black;
+    background-color: #f83d32;
+    border-radius: 0.25rem;
+  }
+}
