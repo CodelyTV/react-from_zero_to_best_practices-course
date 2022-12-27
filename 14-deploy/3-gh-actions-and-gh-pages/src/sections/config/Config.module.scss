@@ -1,0 +1,41 @@
+.config {
+  width: 80%;
+  max-width: 500px;
+  margin: 2rem auto;
+
+  .form {
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    div {
+      margin-bottom: 1rem;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      height: 1.5rem;
+    }
+
+    input[type="submit"] {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      color: #1a2233;
+      font-weight: bold;
+      font-size: 1rem;
+      background-color: #3cff64;
+      border: 1px solid transparent;
+      border-radius: 2rem;
+    }
+  }
+
+  .callout {
+    padding: 1rem;
+    font-weight: bold;
+    background-color: #3cff64;
+    border-radius: 0.25rem;
+  }
+}
