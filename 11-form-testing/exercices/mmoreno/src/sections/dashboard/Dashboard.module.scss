@@ -1,0 +1,16 @@
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - var(--header-height));
+  font-size: 1.5rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
